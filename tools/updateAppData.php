@@ -92,7 +92,7 @@ if ($newAppData !== $appDataSource)
     $newAppData['meta']['timestamp'] = $dt->getTimestamp();
     $newAppData['meta']['updated']   = $dt->format(DateTime::ISO8601);
 
-    if (file_put_contents($appDataPath, json_encode($newAppData, JSON_PRETTY_PRINT)))
+    if (file_put_contents($appDataPath, json_encode($newAppData, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES)))
     {
         echo "Success! appdata.json updated".PHP_EOL;
     }

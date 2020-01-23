@@ -17,7 +17,7 @@
     "apps": {
         "swedbank": {
             "appID": "VFy3zkreQOdoi9wo",
-            "useragent": "SwedbankMOBPrivateIOS\/7.18.0_(iOS;_13.3)_Apple\/iPhone10,6"
+            "useragent": "SwedbankMOBPrivateIOS/7.18.0_(iOS;_13.3)_Apple/iPhone10,6"
         }
     }
 }
