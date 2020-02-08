@@ -3,3 +3,6 @@
 .DS_Store
 
 *.chlsj
+
+vendor/
+composer.lock

@@ -1,0 +1,28 @@
+{
+    "name": "walle89/sbj-resources",
+    "description": "External resources for SwedbankJson project.",
+    "type": "library",
+    "keywords": ["swedbankjson"],
+    "minimum-stability": "stable",
+    "license": "MIT",
+    "homepage": "https://github.com/walle89/sbj-resources",
+    "authors": [
+        {
+            "name": "Eric Wallmander",
+            "homepage": "http://wallmander.net/"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/walle89/sbj-resources/issues",
+        "source": "https://github.com/walle89/sbj-resources"
+    },
+    "require": {
+        "php": ">=7.2",
+        "ext-json": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Sbj\\tools\\":"tools/src"
+        }
+    }
+}
