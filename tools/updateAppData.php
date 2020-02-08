@@ -12,7 +12,7 @@ require_once __DIR__.'/src/AppData.php';
 $appDataPath = __DIR__.'/../src/AppData.json';
 $chljsFile = $argv[1] ?: '';
 
-if (empty($chljsFile))
+if (empty($chljsFile) OR !preg_match('/\.chlsj$/iu', $chljsFile))
 {
     exit('Valid path to a .chljs file is required'.PHP_EOL);
 }

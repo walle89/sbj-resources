@@ -58,7 +58,7 @@ class AppData
      */
     public function loadChljs( string $chljsFilePath )
     {
-        if ( !is_readable($chljsFilePath) OR !preg_match('/\.chlsj$/iu', $chljsFilePath) )
+        if ( !is_readable($chljsFilePath) )
         {
             throw new Exception("'$chljsFilePath' dose not exists or is not readable");
         }
