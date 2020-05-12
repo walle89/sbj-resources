@@ -1,12 +1,13 @@
 # JSON schema for [AppData.json](../src/AppData.json)
 
-| Parameter | Description |
+| Attribute | Description |
 | --- | --- |
 | meta->updated | Time and date when the file was last updated in ISO 8601 format | 
-| meta->timestamp | Unix timestamp when the file wa last updated | 
+| meta->timestamp | Unix timestamp when the file was last updated | 
 | apps->banktype | Bank type (eg. apps->swedbank) |
 | apps->banktype->appID | ID from app used for authentication |
 | apps->banktype->useragent | User-agent from app used for authentication |
+ 
  
 ```javascript
 {
@@ -22,3 +23,7 @@
     }
 }
 ```
+
+## What's the difference between "updated" and "timestamp"?
+It's the same date but in two different formats. Timestamp is in many cases easier develop with without any need for a datetime library.
+The "updated" attribute is there mainly for to have a human readable date time format. Can be also be used by a datetime library that supports ISO 8601 as input format.
