@@ -28,8 +28,13 @@ class AppData
     /** @var array JSON decoded AppData.json */
     private $sourceData;
 
-    public function __construct(string $sourcePath) {
+    /** @var string AppData.json string data */
+    private $jsonSource;
+
+    public function __construct(string $sourcePath, string $jsonSource='')
+    {
         $this->sourcePath = $sourcePath;
+        $this->jsonSource = $jsonSource;
     }
 
     /**
@@ -41,7 +46,8 @@ class AppData
     {
         if ( !$this->sourceData )
         {
-            $this->sourceData = json_decode(file_get_contents($this->sourcePath), true);
+            $dataString = $this->jsonSource ?: file_get_contents($this->sourcePath);
+            $this->sourceData = json_decode($dataString, true);
         }
 
         return $this->sourceData;
@@ -115,7 +121,7 @@ class AppData
                     $newAppData[ $bankType ] = $temp;
                     break;
                 }
-                
+
                 $misses[] = $temp;
             }
         }
@@ -155,7 +161,8 @@ class AppData
      *
      * @return bool
      */
-    public function compare( array $newAppData): bool {
+    public function compare( array $newAppData ): bool
+    {
         return $newAppData === $this->getSourceData()['apps'];
     }
 
