@@ -23,7 +23,3 @@
     }
 }
 ```
-
-## What's the difference between "updated" and "timestamp"?
-It's the same date but in two different formats. Timestamp is in many cases easier develop with without any need for a datetime library.
-The "updated" attribute is there mainly for to have a human readable date time format. Can be also be used by a datetime library that supports ISO 8601 as input format.
