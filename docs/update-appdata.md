@@ -29,7 +29,7 @@ If you have a mac with Apple Silicon, you don't need an ios device to capture HT
 ## Method 2 - Charles Proxy for Ios
 Charles Proxy for Ios have made it quite easy to setup and record on device HTTPS sessions, and is a cheaper option than purchase a licence for Charles Proxy for desktop.
 
-### Pre-requirements
+### Requirements
 * Any ios device (eg. Iphone and Ipad) that [can run Swedbank and Sparbanken apps](https://www.swedbank.se/share/layer-content/privat/digitala-tjanster/vara-appar/for-privatpersoner/detta-kravs-for-att-ladda-ner-appen.html).
 * Have [Charles proxy for ios](https://apps.apple.com/app/charles-proxy/id1134218562) installed and [setup listen on HTTPS traffic](https://www.charlesproxy.com/documentation/ios/getting-started-1/).
 * Include `https://auth.api.swedbank.se` in SSL Proxying settings in Charles.
@@ -49,7 +49,7 @@ Charles Proxy for Ios have made it quite easy to setup and record on device HTTP
 Run the Swedbank and Sparbanken apps on ios and record the session on a Windows, Mac or Linux device.
 It can be a bit tricky to setup in some cases, but otherwise a reliable method to listen on HTTPS traffic.  
 
-### Pre-requirements
+### Requirements
 * Any ios device (eg. Iphone and Ipad) that [can run Swedbank and Sparbanken apps](https://www.swedbank.se/share/layer-content/privat/digitala-tjanster/vara-appar/for-privatpersoner/detta-kravs-for-att-ladda-ner-appen.html).
 * Have [Charels for desktop](https://www.charlesproxy.com/download/) installed and [setup Ios to listen on HTTPS traffic](https://help.testlio.com/en/articles/1144391-charles-proxy-guide-for-ios).
 * Have both the Ios device and desktop connected to the same (Wifi) network.
