@@ -1,24 +1,24 @@
 {
     "meta": {
-        "updated": "2022-03-07T22:36:26+0100",
-        "timestamp": 1646688986
+        "updated": "2022-04-11T22:42:41+0200",
+        "timestamp": 1649709761
     },
     "apps": {
         "swedbank": {
-            "appID": "mRpq88vDEFSwHNKR",
-            "useragent": "SwedbankMOBPrivateIOS/7.41.0_(iOS;_15.3)_Apple/iPad8,6"
+            "appID": "yc7sB63wUZnineVY",
+            "useragent": "SwedbankMOBPrivateIOS/7.42.0_(iOS;_15.4)_Apple/iPad8,6"
         },
         "sparbanken": {
-            "appID": "vUzdAzZG1uDUSMlJ",
-            "useragent": "SavingbankMOBPrivateIOS/7.41.0_(iOS;_15.3)_Apple/iPad8,6"
+            "appID": "8Pqhy0yI14Gar1b0",
+            "useragent": "SavingbankMOBPrivateIOS/7.42.0_(iOS;_15.4)_Apple/iPad8,6"
         },
         "swedbank_foretag": {
-            "appID": "Lqe9pLCgNY8SOGue",
-            "useragent": "SwedbankMOBCorporateIOS/3.27.0_(iOS;_15.3)_Apple/iPad8,6"
+            "appID": "zGOzpt55LoO75XHj",
+            "useragent": "SwedbankMOBCorporateIOS/3.28.0_(iOS;_15.4)_Apple/iPad8,6"
         },
         "sparbanken_foretag": {
-            "appID": "M9uLpp4Khn5Ids9S",
-            "useragent": "SavingbankMOBCorporateIOS/3.27.0_(iOS;_15.3)_Apple/iPad8,6"
+            "appID": "fJXMrnKPXKfd9xV3",
+            "useragent": "SavingbankMOBCorporateIOS/3.28.0_(iOS;_15.4)_Apple/iPad8,6"
         }
     }
 }
