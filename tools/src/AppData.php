@@ -4,6 +4,7 @@ namespace Sbj\tools;
 
 
 use DateTime;
+use DateTimeInterface;
 use DateTimeZone;
 use Exception;
 
@@ -190,7 +191,7 @@ class AppData
         }
 
         $newAppData['meta']['timestamp'] = $dt->getTimestamp();
-        $newAppData['meta']['updated']   = $dt->format(DateTime::ISO8601);
+        $newAppData['meta']['updated']   = $dt->format(DateTimeInterface::ATOM);
 
         if ( !file_put_contents($this->sourcePath, json_encode($newAppData, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES)) )
         {
