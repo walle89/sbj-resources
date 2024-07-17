@@ -45,7 +45,7 @@ class AppData
      */
     protected function getSourceData(): array
     {
-        if ( !$this->sourceData )
+        if ( empty($this->sourceData) )
         {
             $dataString = $this->jsonSource ?: file_get_contents($this->sourcePath);
             $this->sourceData = json_decode($dataString, true);
