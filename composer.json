@@ -17,7 +17,7 @@
         "source": "https://github.com/walle89/sbj-resources"
     },
     "require": {
-        "php": ">=7.2",
+        "php": ">=8.1",
         "ext-json": "*"
     },
     "autoload": {
