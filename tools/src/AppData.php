@@ -23,19 +23,15 @@ class AppData
     /** @var string User agent match pattern */
     const userAgentPattern = '#^([a-zA-Z]{16,22})(IOS|Android)/[0-9\.]+_#u';
 
-    /** @var string Full path to AppData.json */
-    private $sourcePath;
-
     /** @var array JSON decoded AppData.json */
-    private $sourceData;
+    private array $sourceData;
 
-    /** @var string AppData.json string data */
-    private $jsonSource;
-
-    public function __construct(string $sourcePath, string $jsonSource='')
+    public function __construct(
+        private readonly string $sourcePathJson,
+        private readonly string $sourcePathTxt,
+        private readonly string $jsonSource = '',
+    )
     {
-        $this->sourcePath = $sourcePath;
-        $this->jsonSource = $jsonSource;
     }
 
     /**
@@ -47,7 +43,7 @@ class AppData
     {
         if ( empty($this->sourceData) )
         {
-            $dataString = $this->jsonSource ?: file_get_contents($this->sourcePath);
+            $dataString = $this->jsonSource ?: file_get_contents($this->sourcePathJson);
             $this->sourceData = json_decode($dataString, true);
         }
 
@@ -193,9 +189,35 @@ class AppData
         $newAppData['meta']['timestamp'] = $dt->getTimestamp();
         $newAppData['meta']['updated']   = $dt->format(DateTimeInterface::ATOM);
 
-        if ( !file_put_contents($this->sourcePath, json_encode($newAppData, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES)) )
+        if ( !file_put_contents($this->sourcePathJson, json_encode($newAppData, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES)) )
         {
-            throw new Exception('Update detected, but can\'t write to file');
+            throw new Exception('Update detected, but can\'t write to '.$this->sourcePathJson);
+        }
+
+        // TxtData format
+        $fp = fopen($this->sourcePathTxt, 'w');
+        $fields = ['banktype', 'appID', 'useragent'];
+
+        if (fputcsv($fp, $fields) === false) {
+            throw new Exception('Update detected, but can\'t write to '.$this->sourcePathTxt);
+        }
+
+        foreach ($appData as $bankType => $r) {
+            $tmpFields = [$bankType, $r['appID'], $r['useragent']];
+            fputcsv($fp, $tmpFields);
+        }
+
+        fclose($fp);
+
+        $tempTxt = file_get_contents($this->sourcePathTxt);
+        $txtData =
+            "#updated={$newAppData['meta']['updated']}\n".
+            "#timestamp={$newAppData['meta']['timestamp']}\n".
+            $tempTxt;
+
+        if (!file_put_contents($this->sourcePathTxt, $txtData))
+        {
+            throw new Exception('Update detected, but can\'t write to '.$this->sourcePathTxt);
         }
 
         return true;

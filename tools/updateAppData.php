@@ -9,20 +9,26 @@ if ( php_sapi_name() != 'cli')
 
 require_once __DIR__.'/src/AppData.php';
 
-$appDataPath = __DIR__.'/../src/AppData.json';
-$chljsFile = $argv[1] ?: '';
+$appDataPathJson = realpath(__DIR__.'/../src/AppData.json');
+$appDataPathTxt  = realpath(__DIR__.'/../src/AppData.txt');
+$chljsFile       = $argv[1] ?: '';
 
 if (empty($chljsFile) OR !preg_match('/\.chlsj$/iu', $chljsFile))
 {
     exit('Valid path to a .chljs file is required'.PHP_EOL);
 }
 
-if (!is_writable($appDataPath))
+if (!is_writable($appDataPathJson))
 {
     exit("Either can't find AppData.json, or the file isn't writable".PHP_EOL);
 }
 
-$ad = new AppData($appDataPath);
+if (!is_writable($appDataPathTxt))
+{
+    exit("Either can't find AppData.txt, or the file isn't writable".PHP_EOL);
+}
+
+$ad = new AppData($appDataPathJson, $appDataPathTxt);
 
 try
 {
@@ -38,7 +44,7 @@ try
 
     if ( $ad->updateSource($newAppData) )
     {
-        echo "Success! $appDataPath updated".PHP_EOL;
+        echo "Success! $appDataPathJson and $appDataPathTxt are updated".PHP_EOL;
     }
 }
 catch ( Exception $e )
