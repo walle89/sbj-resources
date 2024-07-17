@@ -6,6 +6,15 @@ This data is used in the authentication process with the Swedbank mobile app API
 
 You can download the file with this URL: https://raw.githubusercontent.com/walle89/sbj-resources/master/src/AppData.json
 
+[JSON schema specification](docs/appdata-json-schema.md).
+
+## What is AppData.txt?
+Tabulated version of AppData.json in a CSV inspired format.
+
+You can download the file with this URL: https://raw.githubusercontent.com/walle89/sbj-resources/master/src/AppData.txt
+
+[TXT schema specification](docs/appdata-txt-schema.md).
+
 ## Documentation
 See [docs/](docs/) folder.
 
@@ -13,6 +22,6 @@ See [docs/](docs/) folder.
 Yes! This repo is under [MIT license](LICENSE).
 
 ## Support for Swedbank- and Sparbankerna youth apps removed
-As of November 2020, `SwedbankMOBYouthIOS` and  `SavingbankMOBYouthIOS` user agents have been removed from this project.
+As of November 2020, `SwedbankMOBYouthIOS` and `SavingbankMOBYouthIOS` user agents have been removed from this project.
 
 These app clients have been marked as deprecated by Swedbank and will soon not be functional. Use `SwedbankMOBPrivateIOS` or `SavingbankMOBPrivateIOS` instead.
