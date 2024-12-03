@@ -23,6 +23,14 @@ class AppData
     /** @var string User agent match pattern */
     const userAgentPattern = '#^([a-zA-Z]{16,22})(IOS|Android)/[0-9\.]+_#u';
 
+    /** @var string[] Txt Data format settings */
+    const txtDataFormatSettings = [
+        'separator' => ',',
+        'enclosure' => '"',
+        'escape' => '',
+        'eol' => "\n",
+    ];
+
     /** @var array JSON decoded AppData.json */
     private array $sourceData;
 
@@ -198,13 +206,13 @@ class AppData
         $fp = fopen($this->sourcePathTxt, 'w');
         $fields = ['banktype', 'appID', 'useragent'];
 
-        if (fputcsv($fp, $fields) === false) {
+        if (fputcsv($fp, $fields, ...self::txtDataFormatSettings) === false) {
             throw new Exception('Update detected, but can\'t write to '.$this->sourcePathTxt);
         }
 
         foreach ($appData as $bankType => $r) {
             $tmpFields = [$bankType, $r['appID'], $r['useragent']];
-            fputcsv($fp, $tmpFields);
+            fputcsv($fp, $tmpFields, ...self::txtDataFormatSettings);
         }
 
         fclose($fp);

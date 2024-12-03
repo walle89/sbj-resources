@@ -2,7 +2,7 @@
 
 Based on the CSV file format with comments embedded at the top of the file.
 
-Table data delimited by commas (,), quotation marks (") for encasements, lines separated by LF (\n) and escaped characters with a backslash (\\).
+Table data is delimited by commas (,), quotation marks ("), and lines are separated by the line feed character (\n).
 
 | Attribute | Description                                                                       |
 |-----------|-----------------------------------------------------------------------------------|
