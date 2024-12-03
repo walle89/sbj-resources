@@ -1,16 +1,16 @@
 # TXT schema for [AppData.txt](../src/AppData.txt)
 
-Based on the CSV file format with comments embedded at the top of the file.
+Based on the Comma-Separated Values (CSV) file format, which includes embedded comments at the file's beginning.
 
 Table data is delimited by commas (,), quotation marks ("), and lines are separated by the line feed character (\n).
 
-| Attribute | Description                                                                       |
-|-----------|-----------------------------------------------------------------------------------|
-| updated   | Time and date when the file was last updated in ATOM-format (similar to ISO-8601) | 
-| timestamp | Unix timestamp when the file was last updated                                     | 
-| banktype  | Bank type                                                                         |
-| appID     | ID from app used for authentication                                               |
-| useragent | User-agent from app used for authentication                                       |
+| Attribute | Description                                                                        |
+|-----------|------------------------------------------------------------------------------------|
+| updated   | The date and time the file was last modified in ATOM format (similar to ISO-8601)  | 
+| timestamp | Unix timestamp when the file was last updated                                      | 
+| banktype  | The type of bank application utilized for authentication purposes                  |
+| appID     | Unique identifier assigned to the application utilized for authentication purposes |
+| useragent | The user agent of the application used for authentication                          |
 
 ## Sample
 ```csv

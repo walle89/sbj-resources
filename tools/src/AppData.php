@@ -160,11 +160,11 @@ class AppData
     }
 
     /**
-     * Check if anything have changed
+     * Check if app metadata have changed
      *
      * @param array $newAppData
      *
-     * @return bool
+     * @return bool Returns true if new app metadata is identical to current app metadata
      */
     public function compare( array $newAppData ): bool
     {

@@ -1,12 +1,12 @@
 # JSON schema for [AppData.json](../src/AppData.json)
 
-| Attribute                 | Description                                                                       |
-|---------------------------|-----------------------------------------------------------------------------------|
-| meta->updated             | Time and date when the file was last updated in ATOM-format (similar to ISO-8601) | 
-| meta->timestamp           | Unix timestamp when the file was last updated                                     | 
-| apps->banktype            | Bank type (eg. apps->swedbank)                                                    |
-| apps->banktype->appID     | ID from app used for authentication                                               |
-| apps->banktype->useragent | User-agent from app used for authentication                                       |
+| Attribute                 | Description                                                                        |
+|---------------------------|------------------------------------------------------------------------------------|
+| meta->updated             | The date and time the file was last modified in ATOM format (similar to ISO-8601)  | 
+| meta->timestamp           | Unix timestamp when the file was last updated                                      | 
+| apps->banktype            | The type of bank application utilized for authentication purposes                  |
+| apps->banktype->appID     | Unique identifier assigned to the application utilized for authentication purposes |
+| apps->banktype->useragent | The user agent of the application used for authentication                          |
  
 ## Sample 
 ```javascript
