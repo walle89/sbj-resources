@@ -1,8 +1,13 @@
-# Update appdata.json
+# Update AppData
 
-Note: Work in progress.
+This guide provides a step-by-step instructions on extracting metadata from Swedbank applications and subsequently updating AppData.json and AppData.txt. The primary objective of
+this guide is to document the process of updating these files.
 
-Apps that need to be installed:
+For users seeking pre-updated files that can be immediately utilized, a detailed description is provided in [README.md](../README.md).
+
+## Prerequisites
+
+Required Apps:
 
 * [Swedbank](https://apps.apple.com/us/app/swedbank-private/id344161302)
 * [Sparbanken](https://apps.apple.com/th/app/savings-bank-private/id526657154)
@@ -15,9 +20,9 @@ Charles Proxy for iOS has made it quite easy to set up and record on-device HTTP
 
 ### Requirements
 
-* Any iOS device (eg. Iphone and iPad)
-  that [can run Swedbank and Sparbanken apps](https://www.swedbank.se/share/layer-content/privat/digitala-tjanster/vara-appar/for-privatpersoner/detta-kravs-for-att-ladda-ner-appen.html).
-* Have [Charles Proxy for iOS](https://apps.apple.com/app/charles-proxy/id1134218562) installed
+* Any iOS device, including iPhones and iPads, that is capable
+  of [running the Swedbank and Sparbanken apps](https://www.swedbank.se/share/layer-content/privat/digitala-tjanster/vara-appar/for-privatpersoner/detta-kravs-for-att-ladda-ner-appen.html).
+* Have [Charles Proxy for iOS](https://apps.apple.com/app/charles-proxy/id1134218562) installed.
   and [set up listen on HTTPS traffic](https://www.charlesproxy.com/documentation/ios/getting-started-1/).
 * Include `https://auth.api.swedbank.se` in SSL Proxying settings in Charles.
 
@@ -40,9 +45,9 @@ It can be a bit tricky to set up in some cases, but otherwise a reliable method 
 
 ### Requirements
 
-* Any iOS device (eg. Iphone and iPad)
-  that [can run Swedbank and Sparbanken apps](https://www.swedbank.se/share/layer-content/privat/digitala-tjanster/vara-appar/for-privatpersoner/detta-kravs-for-att-ladda-ner-appen.html).
-* Have [Charles for desktop](https://www.charlesproxy.com/download/) installed
+* Any iOS device, including iPhones and iPads, that is capable
+  of [running the Swedbank and Sparbanken apps](https://www.swedbank.se/share/layer-content/privat/digitala-tjanster/vara-appar/for-privatpersoner/detta-kravs-for-att-ladda-ner-appen.html).
+* Have [Charles for desktop](https://www.charlesproxy.com/download/) installed.
   and [set up iOS to listen on HTTPS traffic](https://help.testlio.com/en/articles/1144391-charles-proxy-guide-for-ios).
 * Have both the iOS device and desktop connected to the same (Wi-Fi) network.
 * Include `https://auth.api.swedbank.se` in SSL Proxying settings in Charles.
@@ -63,7 +68,7 @@ It can be a bit tricky to set up in some cases, but otherwise a reliable method 
 
 > [!IMPORTANT]
 > As of November 2024, Swedbank no longer indicates that its applications are compatible with macOS in the App Store. Consequently, this method is no longer viable. These
-instructions are retained for historical reference purposes only.
+> instructions are retained for historical reference purposes only.
 
 If you have a Mac with Apple Silicon, you don't need an iOS device to capture HTTPS traffic. This method is both relatively easy to set up and it's possible to use Charles Proxy
 Desktop for free during the trial period.
