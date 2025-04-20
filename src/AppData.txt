@@ -1,7 +1,7 @@
-#updated=2025-03-12T22:23:20+01:00
-#timestamp=1741814600
+#updated=2025-04-20T22:59:25+02:00
+#timestamp=1745182765
 banktype,appID,useragent
-swedbank,FmoXvKQxh3uUwH1L,"SwedbankMOBPrivateIOS/7.74.0_(iOS;_18.4)_Apple/iPad16,3"
-sparbanken,r6sErf5d0F4jLUdx,"SavingbankMOBPrivateIOS/7.74.0_(iOS;_18.4)_Apple/iPad16,3"
-swedbank_foretag,xE73y4nRQcPqDec9,"SwedbankMOBCorporateIOS/3.60.0_(iOS;_18.4)_Apple/iPad16,3"
-sparbanken_foretag,z2WO6ryPwmk5M7Zn,"SavingbankMOBCorporateIOS/3.60.0_(iOS;_18.4)_Apple/iPad16,3"
+swedbank,yWdW3iMxaCVFyS33,"SwedbankMOBPrivateIOS/7.75.1_(iOS;_18.5)_Apple/iPad16,3"
+sparbanken,U9eYFmXtu9Q0lP50,"SavingbankMOBPrivateIOS/7.75.1_(iOS;_18.5)_Apple/iPad16,3"
+swedbank_foretag,yyRpuOmF7gHdKEHg,"SwedbankMOBCorporateIOS/3.61.0_(iOS;_18.5)_Apple/iPad16,3"
+sparbanken_foretag,CZMx1LTY0XUsWJGz,"SavingbankMOBCorporateIOS/3.61.0_(iOS;_18.5)_Apple/iPad16,3"
