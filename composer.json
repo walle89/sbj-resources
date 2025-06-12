@@ -1,6 +1,6 @@
 {
     "name": "walle89/sbj-resources",
-    "description": "External resources for SwedbankJson project.",
+    "description": "External resources for SBJ client project.",
     "type": "library",
     "keywords": ["swedbankjson"],
     "minimum-stability": "stable",

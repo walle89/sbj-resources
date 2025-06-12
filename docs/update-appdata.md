@@ -1,6 +1,15 @@
+> [!CAUTION] Disclaimer  
+> This guide describes a reverse engineering process related to Swedbank and Sparbanken mobile apps.  
+> This project is not affiliated with, endorsed by, or associated with Swedbank, Sparbanken, or their subsidiaries.  
+> Use of the described methods involves capturing and analyzing network traffic from proprietary applications and may be subject to legal or policy restrictions in your
+jurisdiction.  
+> Ensure your use complies with applicable laws, terms of service, and privacy policies.  
+> Proceed only if you understand and accept the associated risks.  
+> This documentation is provided for educational and interoperability purposes only.
+
 # Update AppData
 
-This guide provides a step-by-step instructions on extracting metadata from Swedbank applications and subsequently updating AppData.json and AppData.txt. The primary objective of
+This guide provides step-by-step instructions on extracting metadata from Swedbank applications and subsequently updating AppData.json and AppData.txt. The primary objective of
 this guide is to document the process of updating these files.
 
 For users seeking pre-updated files that can be immediately utilized, a detailed description is provided in [README.md](../README.md).
@@ -90,3 +99,6 @@ Desktop for free during the trial period.
 5. In the menu: File | Export session..., save it as a `.chlsj` file.
 6. Run `php tools/updateAppData.php your/path/to/charles/proxy/file.chlsj`.
 7. Git commit and ask for a pull request.
+
+> [!IMPORTANT]  
+> Use these methods responsibly and ensure compliance with all relevant laws and policies.

@@ -20,3 +20,7 @@ banktype,appID,useragent
 swedbank,dQNaxHjDjgA7Ga4T,"SwedbankMOBPrivateIOS/7.67.1_(iOS;_17.5)_Apple/iPad8,6"
 sparbanken,pLjvflMfirASsNE4,"SavingbankMOBPrivateIOS/7.67.1_(iOS;_17.5)_Apple/iPad8,6"
 ```
+
+> [!NOTE]  
+> Swedbank and Sparbanken are registered trademarks of their respective owners.  
+> This project is not affiliated with or endorsed by these organizations.

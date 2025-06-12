@@ -27,3 +27,7 @@
     }
 }
 ```
+
+> [!NOTE]  
+> Swedbank and Sparbanken are registered trademarks of their respective owners.  
+> This project is not affiliated with or endorsed by these organizations.
