@@ -1,6 +1,6 @@
-> [!CAUTION] Disclaimer  
-> This project is not affiliated with, endorsed by, or associated with Swedbank, Sparbanken, or any of their subsidiaries.  
-> All trademarks and brand names are the property of their respective owners.  
+> [!CAUTION]
+> This project is not affiliated with, endorsed by, or associated with Swedbank, Sparbanken, or any of their subsidiaries.
+> All trademarks and brand names are the property of their respective owners.
 > Use of the information and resources provided in this repository is for educational and interoperability purposes only and may be subject to legal or policy restrictions.
 
 # SBJ Resources

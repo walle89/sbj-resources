@@ -1,11 +1,9 @@
-> [!CAUTION] Disclaimer  
-> This guide describes a reverse engineering process related to Swedbank and Sparbanken mobile apps.  
-> This project is not affiliated with, endorsed by, or associated with Swedbank, Sparbanken, or their subsidiaries.  
+> [!CAUTION]
+> This guide describes a reverse engineering process related to Swedbank and Sparbanken mobile apps.
+> This project is not affiliated with, endorsed by, or associated with Swedbank, Sparbanken, or their subsidiaries.
 > Use of the described methods involves capturing and analyzing network traffic from proprietary applications and may be subject to legal or policy restrictions in your
-jurisdiction.  
-> Ensure your use complies with applicable laws, terms of service, and privacy policies.  
-> Proceed only if you understand and accept the associated risks.  
-> This documentation is provided for educational and interoperability purposes only.
+jurisdiction.
+> Provided for educational and interoperability purposes only.
 
 # Update AppData
 
