@@ -32,6 +32,7 @@ Charles Proxy for iOS has made it quite easy to set up and record on-device HTTP
 * Have [Charles Proxy for iOS](https://apps.apple.com/app/charles-proxy/id1134218562) installed.
   and [set up listen on HTTPS traffic](https://www.charlesproxy.com/documentation/ios/getting-started-1/).
 * Include `https://auth.api.swedbank.se` in SSL Proxying settings in Charles.
+* PHP 8.1 or newer is required to run `tools/updateAppData.php`.
 
 ### Step by step
 
@@ -58,6 +59,7 @@ It can be a bit tricky to set up in some cases, but otherwise a reliable method 
   and [set up iOS to listen on HTTPS traffic](https://help.testlio.com/en/articles/1144391-charles-proxy-guide-for-ios).
 * Have both the iOS device and desktop connected to the same (Wi-Fi) network.
 * Include `https://auth.api.swedbank.se` in SSL Proxying settings in Charles.
+* PHP 8.1 or newer is required to run `tools/updateAppData.php`.
 
 ### Step by step
 
@@ -87,6 +89,7 @@ Desktop for free during the trial period.
 * Have [Charles for desktop](https://www.charlesproxy.com/download/) installed
   and [setup SSL proxy MacOS (not iOS)](https://www.charlesproxy.com/documentation/using-charles/ssl-certificates/).
 * Include `https://auth.api.swedbank.se` in SSL Proxying settings in Charles.
+* PHP 8.1 or newer is required to run `tools/updateAppData.php`.
 
 ### Step by step
 
