@@ -16,8 +16,6 @@ class AppData
         'SavingbankMOBPrivate'   => 'sparbanken',
         'SwedbankMOBCorporate'   => 'swedbank_foretag',
         'SavingbankMOBCorporate' => 'sparbanken_foretag',
-        'SwedbankMOBYouth'       => 'swedbank_ung',
-        'SavingbankMOBYouth'     => 'sparbanken_ung',
     ];
 
     /** @var string User agent match pattern */
