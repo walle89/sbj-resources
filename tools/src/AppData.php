@@ -7,6 +7,7 @@ use DateTime;
 use DateTimeInterface;
 use DateTimeZone;
 use Exception;
+use JsonException;
 
 class AppData
 {
@@ -47,18 +48,18 @@ class AppData
      * AppData.json source file
      *
      * @return mixed
+     * @throws JsonException
      */
     protected function getSourceData(): array
     {
         if ( empty($this->sourceData) )
         {
-            $dataString = $this->jsonSource ?: file_get_contents($this->sourcePathJson);
-            $this->sourceData = json_decode($dataString, true);
+            $dataString       = $this->jsonSource ?: file_get_contents($this->sourcePathJson);
+            $this->sourceData = json_decode(json: $dataString, associative: true, flags: JSON_THROW_ON_ERROR);
         }
 
         return $this->sourceData;
     }
-
 
     /**
      * Load .chljs file
@@ -66,16 +67,22 @@ class AppData
      * @param string $chljsFilePath
      *
      * @return mixed
-     * @throws Exception
+     * @throws AppDataException
      */
     public function loadChljs( string $chljsFilePath )
     {
         if ( !is_readable($chljsFilePath) )
         {
-            throw new Exception("'$chljsFilePath' dose not exists or is not readable");
+            throw new AppDataException("The .chljs file '{$chljsFilePath}' does not exist or is not readable");
         }
 
-        return json_decode(file_get_contents($chljsFilePath));
+        try
+        {
+            return json_decode(json: file_get_contents($chljsFilePath), flags: JSON_THROW_ON_ERROR);
+        } catch (JsonException $e)
+        {
+            throw new AppDataException("Malformed .chljs file '{$chljsFilePath}', unable to parse", $e->getCode(), $e);
+        }
     }
 
     /**
@@ -84,6 +91,7 @@ class AppData
      * @param object $rawChljs
      *
      * @return array
+     * @throws AppDataException
      */
     public function parserChljs($rawChljs): array
     {
@@ -132,6 +140,11 @@ class AppData
             }
         }
 
+        if (empty($newAppData))
+        {
+            throw new AppDataException("The HTTP dump does not contain any transactions to '".self::apiEndpoint."'. Please make sure the dump includes traffic to this endpoint");
+        }
+
         return $newAppData;
     }
 
@@ -141,7 +154,7 @@ class AppData
      * @param array $importedAppData
      *
      * @return array
-     * @throws Exception
+     * @throws JsonException
      */
     public function merge(array $importedAppData): array
     {
@@ -166,6 +179,7 @@ class AppData
      * @param array $newAppData
      *
      * @return bool Returns true if new app metadata is identical to current app metadata
+     * @throws JsonException
      */
     public function compare( array $newAppData ): bool
     {
@@ -178,6 +192,7 @@ class AppData
      * @param array $appData
      *
      * @return bool
+     * @throws AppDataException
      * @throws Exception
      */
     public function updateSource( array $appData ): bool
@@ -186,15 +201,7 @@ class AppData
         $newAppData         = $base;
         $newAppData['apps'] = $appData;
 
-        try
-        {
-            $dt = new DateTime('NOW', new DateTimeZone('Europe/Stockholm'));
-        }
-        catch ( Exception $e )
-        {
-            throw new Exception('DateTime error');
-        }
-
+        $dt = new DateTime('NOW', new DateTimeZone('Europe/Stockholm'));
         $newAppData['meta']['timestamp'] = $dt->getTimestamp();
         $newAppData['meta']['updated']   = $dt->format(DateTimeInterface::ATOM);
 

@@ -1,17 +1,19 @@
 <?php
 
 use Sbj\tools\AppData;
+use Sbj\tools\AppDataException;
 
-if ( php_sapi_name() != 'cli')
+if (php_sapi_name() != 'cli')
 {
-    exit('This script can only be executed in CLI mode');
+    exit('This tool can only be executed in CLI mode'.PHP_EOL);
 }
 
 if (version_compare(PHP_VERSION, '8.1.0', '<'))
 {
-    exit('This tool requires PHP 8.1 or higher. You are running '.PHP_VERSION);
+    exit('This tool requires PHP 8.1 or higher. You are running '.PHP_VERSION.PHP_EOL);
 }
 
+require_once __DIR__.'/src/AppDataException.php';
 require_once __DIR__.'/src/AppData.php';
 
 $appDataPathJson = realpath(__DIR__.'/../src/AppData.json');
