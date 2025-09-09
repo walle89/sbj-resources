@@ -64,14 +64,14 @@ It can be a bit tricky to set up in some cases, but otherwise a reliable method 
 ### Step by step
 
 1. Open Charles Proxy.
-3. Open Wi-Fi settings on the iOS device and configure manual proxy (eg. 192.168.1.149, port 8888).
-4. Start recording.
-5. Check if any traffic comes in from the device.
-6. Open each of the Swedbank and Sparbanken apps on the iOS device. Just load the app, no interaction required.
-7. Stop recording.
-8. In the menu: File | Export session..., save it as a `.chlsj` file.
-9. Run `php tools/updateAppData.php your/path/to/charles/proxy/file.chlsj`.
-10. Git commit and ask for a pull request.
+2. Open Wi-Fi settings on the iOS device and configure manual proxy (eg. 192.168.1.149, port 8888).
+3. Start recording.
+4. Check if any traffic comes in from the device.
+5. Open each of the Swedbank and Sparbanken apps on the iOS device. Just load the app, no interaction required.
+6. Stop recording.
+7. In the menu: File | Export session..., save it as a `.chlsj` file.
+8. Run `php tools/updateAppData.php your/path/to/charles/proxy/file.chlsj`.
+9. Git commit and ask for a pull request.
 
 ## Method 3 - macOS with Apple Silicon (Discontinued)
 
@@ -100,6 +100,3 @@ Desktop for free during the trial period.
 5. In the menu: File | Export session..., save it as a `.chlsj` file.
 6. Run `php tools/updateAppData.php your/path/to/charles/proxy/file.chlsj`.
 7. Git commit and ask for a pull request.
-
-> [!IMPORTANT]  
-> Use these methods responsibly and ensure compliance with all relevant laws and policies.
