@@ -19,7 +19,10 @@ class AppData
     ];
 
     /** @var string User agent match pattern */
-    const userAgentPattern = '#^([a-zA-Z]{16,22})(IOS|Android)/[0-9\.]+_#u';
+    const userAgentPattern = '#^([a-zA-Z]{16,22})(IOS|Android)/[0-9.]+_#u';
+
+    /** @var string API endpoint domain name */
+    const apiEndpoint = 'api.swedbank.se';
 
     /** @var string[] Txt Data format settings */
     const txtDataFormatSettings = [
@@ -88,7 +91,7 @@ class AppData
         $newAppData = [];
         foreach($rawChljs as $i => $r)
         {
-            if ( !isset($r->request->header->headers) OR !strpos($r->host, 'api.swedbank.se') )
+            if ( !isset($r->request->header->headers) OR !str_contains($r->host, self::apiEndpoint))
             {
                 continue;
             }
