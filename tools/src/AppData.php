@@ -95,8 +95,8 @@ class AppData
      */
     public function parserChljs($rawChljs): array
     {
-        $misses     = [];
         $newAppData = [];
+
         foreach($rawChljs as $i => $r)
         {
             if ( !isset($r->request->header->headers) OR !str_contains($r->host, self::apiEndpoint))
@@ -135,8 +135,6 @@ class AppData
                     $newAppData[ $bankType ] = $temp;
                     break;
                 }
-
-                $misses[] = $temp;
             }
         }
 
@@ -205,37 +203,63 @@ class AppData
         $newAppData['meta']['timestamp'] = $dt->getTimestamp();
         $newAppData['meta']['updated']   = $dt->format(DateTimeInterface::ATOM);
 
-        if ( !file_put_contents($this->sourcePathJson, json_encode($newAppData, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES)) )
+        $this->updateJsonSource($newAppData);
+        $this->updateTxtSource($appData, $newAppData['meta']);
+
+        return true;
+    }
+
+    /**
+     * @param mixed $newAppData
+     *
+     * @return void
+     * @throws AppDataException
+     * @throws JsonException
+     */
+    public function updateJsonSource(mixed $newAppData): void
+    {
+        $encodedJson = json_encode($newAppData, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR);
+
+        if (!file_put_contents($this->sourcePathJson, $encodedJson))
         {
-            throw new Exception('Update detected, but can\'t write to '.$this->sourcePathJson);
+            throw new AppDataException("Update detected, but can't write to '{$this->sourcePathJson}'");
+        }
+    }
+
+    /**
+     * @param array $appData
+     * @param array $meta
+     *
+     * @return void
+     * @throws AppDataException
+     */
+    public function updateTxtSource(array $appData, array $meta): void
+    {
+        $fp     = fopen($this->sourcePathTxt, 'w');
+
+        $header = ['banktype', 'appID', 'useragent'];
+        if (fputcsv($fp, $header, ...self::txtDataFormatSettings) === false)
+        {
+            throw new AppDataException("Update detected, but can't write to '{$this->sourcePathTxt}'");
         }
 
-        // TxtData format
-        $fp = fopen($this->sourcePathTxt, 'w');
-        $fields = ['banktype', 'appID', 'useragent'];
-
-        if (fputcsv($fp, $fields, ...self::txtDataFormatSettings) === false) {
-            throw new Exception('Update detected, but can\'t write to '.$this->sourcePathTxt);
-        }
-
-        foreach ($appData as $bankType => $r) {
-            $tmpFields = [$bankType, $r['appID'], $r['useragent']];
-            fputcsv($fp, $tmpFields, ...self::txtDataFormatSettings);
+        foreach ($appData as $bankType => $r)
+        {
+            $tmpRow = [$bankType, $r['appID'], $r['useragent']];
+            fputcsv($fp, $tmpRow, ...self::txtDataFormatSettings);
         }
 
         fclose($fp);
 
-        $tempTxt = file_get_contents($this->sourcePathTxt);
-        $txtData =
-            "#updated={$newAppData['meta']['updated']}\n".
-            "#timestamp={$newAppData['meta']['timestamp']}\n".
-            $tempTxt;
+        $tmpMetaData = "#updated={$meta['updated']}\n".
+            "#timestamp={$meta['timestamp']}\n";
+        $tmpSourceTxt = file_get_contents($this->sourcePathTxt);
 
-        if (!file_put_contents($this->sourcePathTxt, $txtData))
+        $finalTxtData = $tmpMetaData . $tmpSourceTxt;
+
+        if (!file_put_contents($this->sourcePathTxt, $finalTxtData))
         {
-            throw new Exception('Update detected, but can\'t write to '.$this->sourcePathTxt);
+            throw new AppDataException("Update detected, but can't write to '{$this->sourcePathTxt}'");
         }
-
-        return true;
     }
 }
