@@ -88,12 +88,12 @@ class AppData
     /**
      * Extract traffic data
      *
-     * @param object $rawChljs
+     * @param array $rawChljs
      *
      * @return array
      * @throws AppDataException
      */
-    public function parserChljs($rawChljs): array
+    public function parserChljs(array $rawChljs): array
     {
         $newAppData = [];
 
